@@ -4,11 +4,18 @@
 echo ${PWD##*/}
 if [ ${PWD##*/} == 'words-flashcard' ]
 then
-    echo '--- check workspace successfully ---'
-    if git diff-index --quiet HEAD --; then
-        echo '--- git history is clean ---'
+    if command -v git >/dev/null 2>&1; then
+        echo '---> check workspace successfully <---'
+        if git diff-index --quiet HEAD --; then
+            echo '---> git history is clean <---'
+        else
+            echo '---> new words come today, add them to git <---'
+            git add .
+            git commit -m "words: added new words today"
+            git push -u origin master
+        fi
     else
-        echo '--- new words come today, add them to git ---'
+        echo 'no git exists, please visit https://git-scm.com/downloads to install git first!'
     fi
 else
     echo 'You are not in the workspace, will clone new repo automatically!'
