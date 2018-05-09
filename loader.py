@@ -2,6 +2,7 @@
 import xdrlib
 import sys
 import xlrd
+import time
 
 # open the xls file
 
@@ -37,13 +38,26 @@ def read_excel():
 
 
 def write_words(tables, wordNum=100):
+    today = time.strftime("%Y/%m/%d")
+    todayFile = today + ".md"
+    print (todayFile)
     for row in tables:
-        print (row)
+        word = row[0]
+        characteristic = row[1]
+        discription = row[2]
+        readme = open('README.md', 'w', encoding='utf-8')
+        print (word)
 
+def tests():
+    readme = open('README.md', 'w', encoding='utf-8')
+    readme.write('\n| %s | %s | %s |\n' % ("words", "v.", "apple"))
 
 def main():
-    tables = read_excel()
-    write_words(tables)
+    # tables = read_excel()
+    # write_words(tables)
+    tests()
+
+
 
 
 if __name__ == "__main__":
