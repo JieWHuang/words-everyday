@@ -36,9 +36,9 @@ then
                 python3 ./loader.py
                 cd ./days
                 echo '---> new words come today, add them to git <---'
-                # git add .
-                # git commit -m "words: added new words today"
-                # git push -u origin master
+                git add .
+                git commit -m "words: added new words today"
+                git push -u origin master
                 echo "- [ ] [$(date "+%Y-%m-%d")](./$todayFile)" >> README.md
             else
                 echo '---> first day, build new workspace <---'
