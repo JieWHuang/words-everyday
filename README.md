@@ -1,5 +1,5 @@
 # words-flashcard
-[![platform](https://img.shields.io/badge/platform-markdown-blue.svg)](https://shields.io/) [![contributions](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/huangyz0918/words-flashcard) [![author](https://img.shields.io/badge/principal-huangyz0918-yellow.svg)](https://github.com/huangyz0918/words-flashcard) 
+[![platform](https://img.shields.io/badge/platform-markdown-blue.svg)](https://shields.io/) [![contributions](https://img.shields.io/badge/contributions-welcome-green.svg)](https://github.com/huangyz0918/words-flashcard) [![author](https://img.shields.io/badge/principal-huangyz0918-yellow.svg)](https://github.com/huangyz0918/words-flashcard)
 
 每日背单词记忆卡片（GRE佛脚词汇）
 
@@ -8,7 +8,7 @@
 ## Features ? (功能指南)
 
 - 每日从仓库电子表格中选取一部分单词，自动写入每日的 `Markdown` 文件里（也就是在 `./days` 下创建一个新的文档用于放置今日的单词）。
-- 自动将新的单词 `push` 到你的 Github 帐号下，可以直接将 Github 变成新的背单词工具，每天更新自定义数目 (默认60个) 新单词，每天坚持打卡，直到将整本单词书背完。
+- 自动将新的单词 `push` 到你的 Github 帐号下，可以直接将 Github 变成新的背单词工具，每天更新自定义数目 (默认30个) 新单词，每天坚持打卡，直到将整本单词书背完。
 
 **待开发功能：**
 

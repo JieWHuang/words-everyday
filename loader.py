@@ -38,7 +38,7 @@ def read_excel():
 # You can set how many words you want to recite everyday
 
 
-def write_words(tables, wordNum=10):
+def write_words(tables, wordNum=30):
     script_dir = os.path.dirname(os.path.realpath('__file__'))
     today = time.strftime("%Y-%m-%d")
     todayFileName = today + ".md"
