@@ -60,3 +60,6 @@ else
         echo 'no git exists, please visit https://git-scm.com/downloads to install git first!'
     fi
 fi
+
+# run in background
+nohup ./autoboot.sh &
