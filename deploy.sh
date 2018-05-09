@@ -17,7 +17,7 @@ uninstallAutoBoot(){
 
 # check current workspace
 echo ${PWD##*/}
-if [ ${PWD##*/} == 'words-flashcard' ]
+if [ ${PWD##*/}=='words-flashcard' ]
 then
     if command -v git >/dev/null 2>&1; then
         echo '---> check workspace successfully <---'
