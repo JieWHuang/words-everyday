@@ -62,4 +62,5 @@ else
 fi
 
 # run in background
-nohup ./autoboot.sh &
+sudo chmod 755 ./autoboot.sh
+sudo nohup ./autoboot.sh &

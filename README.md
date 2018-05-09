@@ -17,5 +17,5 @@
 - 在开始使用之前，请先确保你有一台配置好 `Git` 的电脑（服务器）。 
 - 将本项目 `fork` 到自己的 Github 账号下。
 - 将自己的 **fork** 克隆 (`clone`) 到服务器主机上，配置好 Github。
-- 将脚本设置成开启自动启动（取消 `deploy.sh` 中注释的函数即可）
-- 运行脚本：`sudo sh deploy.sh`
+- 将脚本设置成开机自动启动（取消 `deploy.sh` 中注释的函数即可）
+- 运行脚本：`sudo sh autoboot.sh`
