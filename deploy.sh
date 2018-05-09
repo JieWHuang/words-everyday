@@ -28,17 +28,18 @@ then
                 cd ./days
                 todayFile=$(date "+%Y-%m-%d.md")
                 touch $todayFile
-                python3 ../loader.py
                 echo "## English words today: $(date "+%Y-%m-%d")" >> $todayFile
                 echo "" >> $todayFile
                 echo "| English Words | Word's property | Chinese description |" >> $todayFile
                 echo "| :-----------: | :-------------: | :-----------------: |" >> $todayFile
+                cd ..
+                python3 ./loader.py
+                cd ./days
                 echo '---> new words come today, add them to git <---'
                 # git add .
                 # git commit -m "words: added new words today"
                 # git push -u origin master
-                cd ..
-                echo "- [ ] [$(date "+%Y-%m-%d")](./days/$todayFile)" >> README.md
+                echo "- [ ] [$(date "+%Y-%m-%d")](./$todayFile)" >> README.md
             else
                 echo '---> first day, build new workspace <---'
                 mkdir ./days

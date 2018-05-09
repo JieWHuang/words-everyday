@@ -3,6 +3,8 @@ import xdrlib
 import sys
 import xlrd
 import time
+import os
+import pandas as pd
 
 # open the xls file
 
@@ -19,7 +21,7 @@ def open_excel(file='words-book/xls/fojiao.xlsx'):
 
 def read_excel():
     data = open_excel()
-    tableOrdered = data.sheets()[0]
+    # tableOrdered = data.sheets()[0]
     tableDisordered = data.sheets()[4]
     nrows = tableDisordered.nrows
     colnames = tableDisordered.row_values(0)
@@ -38,19 +40,37 @@ def read_excel():
 
 
 def write_words(tables, wordNum=100):
-    today = time.strftime("%Y/%m/%d")
-    todayFile = today + ".md"
-    print (todayFile)
-    for row in tables:
+    script_dir = os.path.dirname(os.path.realpath('__file__'))
+    today = time.strftime("%Y-%m-%d")
+    todayFileName = today + ".md"
+    today_file_path = os.path.join(script_dir, "days/" + todayFileName)
+    readme = open(script_dir + '/days/README.md', 'a', encoding='utf-8')
+    todayFile = open(today_file_path, 'a', encoding='utf-8')
+    # print (today_file_path)
+    count = 0
+    while count < 10:
+        row = tables[count]
         word = row[0]
         characteristic = row[1]
         discription = row[2]
-        readme = open('README.md', 'w', encoding='utf-8')
-        print (word)
+        # todayFile.write('| %s | %s | %s |\n' % (word, characteristic, discription))
+        print (word,characteristic,discription)
+        count = count + 1
+        pass
+
+    # writer = pd.ExcelWriter('words-book/xls/fojiao.xlsx')
+
+    # for row in tables:
+    #     word = row[0]
+    #     characteristic = row[1]
+    #     discription = row[2]
+    #     todayFile.write('| %s | %s | %s |\n' % ("word", "characteristic", "discription"))
+    #     print (word,characteristic,discription)
 
 def tests():
-    readme = open('README.md', 'w', encoding='utf-8')
-    readme.write('\n| %s | %s | %s |\n' % ("words", "v.", "apple"))
+    data = pd.read_excel('words-book/xls/fojiao.xlsx', sheet_name="disordered")
+    data.drop(data.index[[2515,2516]],inplace=True)
+    return
 
 def main():
     # tables = read_excel()
