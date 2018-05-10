@@ -44,6 +44,7 @@ then
                 git push -u origin master
             else
                 echo '---> first day, build new workspace <---'
+                cd /root/words-flashcard # here is your workspace
                 mkdir ./days
                 cd ./days
             fi
