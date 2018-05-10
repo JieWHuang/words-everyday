@@ -25,6 +25,8 @@ then
         if git diff-index --quiet HEAD --; then
             # git history is clean, no changes be done, so start building new words...
             echo '---> git history is clean, begin building... <---'
+            # pull the changes made by website. (checkboxes)
+            git pull
             if [ -d "days" ]; then
                 # build the inital table.
                 cd ./days
@@ -55,6 +57,7 @@ then
         else
             # git history is no clean, we should add and commit them all, then start building...
             if [ -d "days" ]; then
+                # if the git history is not clean, we cannot pull the remote (since it needs a merge).
                 git add .
                 git commit -m "added: some extra fixes and changes"
                 # build the inital table.
@@ -76,7 +79,7 @@ then
                 # deploy all the changes.
                 git add .
                 git commit -m "words: added new words today"
-                git push -u origin master
+                git push -u -f origin master
             else
                 echo '---> first day, build new workspace only <---'
                 cd /root/words-flashcard # here is your workspace
