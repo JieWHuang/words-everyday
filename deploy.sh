@@ -1,4 +1,5 @@
 #!/bin/bash
+#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 # set this script auto boot with system
 installAutoBoot(){
