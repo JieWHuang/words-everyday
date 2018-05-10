@@ -23,9 +23,10 @@ then
     if command -v git >/dev/null 2>&1; then
         echo '---> check workspace successfully <---'
         if git diff-index --quiet HEAD --; then
-            echo '---> git history is clean <---'
-        else
+            # git history is clean, no changes be done, so start building new words...
+            echo '---> git history is clean, begin building... <---'
             if [ -d "days" ]; then
+                # build the inital table.
                 cd ./days
                 todayFile=$(date "+%Y-%m-%d.md")
                 touch $todayFile
@@ -34,16 +35,50 @@ then
                 echo "| English Words | Word's property | Chinese description |" >> $todayFile
                 echo "| :-----------: | :-------------: | :-----------------: |" >> $todayFile
                 cd ..
+                # load the new words using python3.
                 python3 ./loader.py
                 cd ./days
+                # added the index to the README.md.
                 echo '---> new words come today, add them to git <---'
                 echo "- [ ] [$(date "+%Y-%m-%d")](./$todayFile)" >> README.md
                 cd ..
+                # deploy all the changes.
                 git add .
                 git commit -m "words: added new words today"
                 git push -u origin master
             else
                 echo '---> first day, build new workspace <---'
+                cd /root/words-flashcard # here is your workspace
+                mkdir ./days
+                cd ./days
+            fi
+        else
+            # git history is no clean, we should add and commit them all, then start building...
+            if [ -d "days" ]; then
+                git add .
+                git commit -m "added: some extra fixes and changes"
+                # build the inital table.
+                cd ./days
+                todayFile=$(date "+%Y-%m-%d.md")
+                touch $todayFile
+                echo "## English words today: $(date "+%Y-%m-%d")" >> $todayFile
+                echo "" >> $todayFile
+                echo "| English Words | Word's property | Chinese description |" >> $todayFile
+                echo "| :-----------: | :-------------: | :-----------------: |" >> $todayFile
+                cd ..
+                # load the new words using python3.
+                python3 ./loader.py
+                cd ./days
+                # added the index to the README.md.
+                echo '---> new words come today, add them to git <---'
+                echo "- [ ] [$(date "+%Y-%m-%d")](./$todayFile)" >> README.md
+                cd ..
+                # deploy all the changes.
+                git add .
+                git commit -m "words: added new words today"
+                git push -u origin master
+            else
+                echo '---> first day, build new workspace only <---'
                 cd /root/words-flashcard # here is your workspace
                 mkdir ./days
                 cd ./days
@@ -58,6 +93,7 @@ else
     if command -v git >/dev/null 2>&1; then
         echo 'exists git,staring clone...'
         git clone https://github.com/huangyz0918/words-flashcard.git
+        # default clone path: ~
         cd ~/words-flashcard
     else
         echo 'no git exists, please visit https://git-scm.com/downloads to install git first!'
