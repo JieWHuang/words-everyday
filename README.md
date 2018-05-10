@@ -3,7 +3,7 @@
 
 每日背单词记忆卡片（GRE佛脚词汇）
 
-<div align=center><img src="https://i.loli.net/2018/05/10/5af3b02769994.png"/></div>
+<img src="https://i.loli.net/2018/05/10/5af3b02769994.png"/>
 
 一个既可以满足快速刷完单词书，又可以满足每日在Github上面打卡成就感的小玩具 : )
 
