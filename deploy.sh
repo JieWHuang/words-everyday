@@ -1,6 +1,6 @@
 #!/bin/bash
 #PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-
+cd ~/words-flashcard
 # set this script auto boot with system
 installAutoBoot(){
     echo "---> run this to set boot option <---"
